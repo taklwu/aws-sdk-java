@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.amazonaws.AmazonWebServiceRequest;
+import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3;
 
 /**
@@ -326,6 +327,20 @@ public class CompleteMultipartUploadRequest extends AmazonWebServiceRequest impl
      */
     public CompleteMultipartUploadRequest withRequesterPays(boolean isRequesterPays) {
         setRequesterPays(isRequesterPays);
+        return this;
+    }
+
+    /**
+     * Set a different credential provider for this request, especially when using IAM's
+     * Assume Role
+     *
+     * @param credentialsProvider
+     *             Credential provider to be used for this Request
+     * @return The updated CompleteMultipartUploadRequest object.
+     */
+    public CompleteMultipartUploadRequest withRequestCredentialsProvider(AWSCredentialsProvider
+        credentialsProvider) {
+        setRequestCredentialsProvider(credentialsProvider);
         return this;
     }
 
